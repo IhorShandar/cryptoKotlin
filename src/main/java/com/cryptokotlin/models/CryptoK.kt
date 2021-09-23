@@ -12,18 +12,11 @@ data class CryptoK(
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         @JsonIgnore
-        var ID: Int,
-        var lastPrice: Double,                                         // last price
-        var crypto: String,                                            // crypto value
-        var dollar: String,                                            //dollar value
-        var createdAt: LocalDateTime
+        var ID: Int = 0,
+        var lastPrice: Double = 0.0,                                         // last price
+        var crypto: String = "",                                            // crypto value
+        var dollar: String = "",                                            //dollar value
+        var createdAt: LocalDateTime = LocalDateTime.now()
 ) {
-
-    //create constructor without ID
-    constructor(lastPrice: Double, crypto: String, dollar: String, createdAt: LocalDateTime) :
-            this(ID= 0, lastPrice = lastPrice, crypto = crypto, dollar = dollar, createdAt= createdAt)
-
-    //create empty constructor
-    constructor() : this(ID= 0, lastPrice = 0.0, crypto = "", dollar = "", createdAt= LocalDateTime.now())
 
 }

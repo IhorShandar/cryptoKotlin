@@ -55,11 +55,12 @@ class CryptoService {
             }
             val formatter: DateTimeFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss")
             val currentTime: LocalDateTime = LocalDateTime.parse(LocalDateTime.now().format(formatter), formatter)
+            println(dateFromNet)
             cryptoK = CryptoK(
-                    dateFromNet.getDouble("lprice"),
-                    dateFromNet.getString("curr1"),
-                    dateFromNet.getString("curr2"),
-                    currentTime
+                    lastPrice = dateFromNet.getDouble("lprice"),
+                    crypto = dateFromNet.getString("curr1"),
+                    dollar = dateFromNet.getString("curr2"),
+                    createdAt = currentTime
             )
         } catch (e: JSONException) {
             e.printStackTrace()
